@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.TemanTravellingTourGuide.">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="WhiteBackArrowToolbarTheme">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="TextTitleStyle">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:lineSpacingMultiplier">0.8</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextSubtitleStyle">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">0.8</item>
+        <item name="android:textColor">@color/light_black</item>
+    </style>
+
+    <style name="TextDescriptionStyle">
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:lineSpacingMultiplier">0.8</item>
+        <item name="android:textColor">@color/light_black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ButtonPrimaryStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="ButtonLightStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:theme">@style/Platform.MaterialComponents.Light</item>
+        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+
+    <style name="TextTitleStyleItemHistory">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:lineSpacingMultiplier">0.8</item>
+        <item name="android:textColor">@color/color_primary</item>
+    </style>
+
+    <style name="TextDescStyleItemHistory">
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:lineSpacingMultiplier">0.8</item>
+        <item name="android:textColor">@color/light_grey</item>
+    </style>
+</resources>

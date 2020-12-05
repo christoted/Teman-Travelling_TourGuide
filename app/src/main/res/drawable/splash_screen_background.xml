@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@android:color/white" />
+
+    <item
+        android:width="243dp"
+        android:height="175dp"
+        android:drawable="@drawable/teman_travelling_logo"
+        android:gravity="center"/>
+
+</layer-list>

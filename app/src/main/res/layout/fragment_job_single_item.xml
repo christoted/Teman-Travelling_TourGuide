@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+
+        <ImageView
+            android:id="@+id/id_iv_activity_history_single_item"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            android:src="@drawable/teman_travelling_logo"
+            android:scaleType="fitXY"
+            />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutVertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/id_iv_activity_history_single_item"
+            android:layout_marginLeft="12dp">
+            <TextView
+                android:id="@+id/id_tv_title1_activity_history_single_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Explore to Jogjakarta"
+                style="@style/TextTitleStyleItemHistory"
+                />
+
+            <TextView
+                android:id="@+id/id_tv_location_activity_history_single_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Central Java, Indonesia"
+                style="@style/TextDescStyleItemHistory"
+                />
+
+            <TextView
+                android:id="@+id/id_tv_days_activity_history_single_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 days"
+                style="@style/TextDescStyleItemHistory"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/linearLayoutVertical"
+            android:layout_toRightOf="@id/id_iv_activity_history_single_item"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="0dp">
+
+            <TextView
+                android:id="@+id/id_tv_date_activity_history_single_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 - 24 November 2020"
+                style="@style/TextDescStyleItemHistory"
+                />
+
+            <TextView
+                android:id="@+id/id_tv_customer_activity_history_single_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mr. James"
+                style="@style/TextDescStyleItemHistory"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

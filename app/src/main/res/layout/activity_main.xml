@@ -4,15 +4,121 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
 
     <TextView
+        android:id="@+id/textView3"
+        style="@style/TextTitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Your Job"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/id_tv_show_more"
+        style="@style/TextDescriptionStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="Show More"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="22dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp">
+
+            <ImageView
+                android:id="@+id/id_iv_activity_history_single_item"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/teman_travelling_image" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutVertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_toRightOf="@id/id_iv_activity_history_single_item"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/id_tv_title1_activity_history_single_item"
+                    style="@style/TextTitleStyleItemHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Explore to" />
+
+                <TextView
+                    android:id="@+id/id_tv_title2_activity_history_single_item"
+                    style="@style/TextTitleStyleItemHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-8dp"
+                    android:text="Yogjakarta" />
+
+                <TextView
+                    android:id="@+id/id_tv_location_activity_history_single_item"
+                    style="@style/TextDescStyleItemHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Central Java, Indonesia" />
+
+                <TextView
+                    android:id="@+id/id_tv_days_activity_history_single_item"
+                    style="@style/TextDescStyleItemHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 days" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linearLayoutVertical"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@id/id_iv_activity_history_single_item"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/id_tv_date_activity_history_single_item"
+                    style="@style/TextDescStyleItemHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 - 24 November 2020" />
+
+                <TextView
+                    android:id="@+id/id_tv_detail_activity_history_single_item"
+                    style="@style/TextDescStyleItemHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="" />
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <include layout="@layout/custom_bottom_navigation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
