@@ -37,7 +37,7 @@
             android:fontFamily="@font/poppins"
             android:textColor="@color/light_black"
             android:textAlignment="center"
-            android:text="Job"/>
+            android:text="Find Job"/>
     </LinearLayout>
 
 

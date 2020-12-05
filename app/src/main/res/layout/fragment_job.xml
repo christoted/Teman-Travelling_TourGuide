@@ -7,5 +7,28 @@
     tools:context=".Fragment.Job">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="30dp">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tunggu Sebentar"
+            android:textAlignment="center"
+            style="@style/TextTitleStyle"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Proses pencarian tour guide sedang dilakukan"
+            android:textAlignment="center"
+            style="@style/TextDescriptionStyle"/>
+    </LinearLayout>
 
 </FrameLayout>

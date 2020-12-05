@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.temantravellingtourguide.Model.History;
 import com.example.temantravellingtourguide.R;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout itemTourGuide, itemHistory, itemAccount, itemWallet;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         itemWallet = findViewById(R.id.item_wallet);
         itemHistory = findViewById(R.id.item_history);
         itemAccount = findViewById(R.id.item_account);
+
 
         itemTourGuide.setOnClickListener((view -> {
             startActivity(new Intent(MainActivity.this, JobActivity.class));
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         itemAccount.setOnClickListener((view -> {
             startActivity(new Intent(MainActivity.this, AccountActivity.class));
         }));
+
 
     }
 }

@@ -13,9 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TemanTravellingTourGuide">
-        <activity android:name=".Activity.HistoryActivity">
-
-        </activity>
+        <activity android:name=".Activity.HistoryActivity"></activity>
         <activity android:name=".Activity.AccountActivity" />
         <activity android:name=".Activity.WalletActivity" />
         <activity android:name=".Activity.JobActivity" />
