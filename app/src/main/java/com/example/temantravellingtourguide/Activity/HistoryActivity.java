@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -58,6 +59,7 @@ public class HistoryActivity extends AppCompatActivity implements ShowHistoryAda
     private void prepareData(){
         showDialog();
         db.collection("history")
+                .orderBy("historyTimestamp", Query.Direction.DESCENDING)
                 .whereEqualTo("partnerUID", FirebaseAuth.getInstance().getCurrentUser().getUid())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -94,11 +96,14 @@ public class HistoryActivity extends AppCompatActivity implements ShowHistoryAda
                                 recyclerView.setAdapter(showHistoryAdapter);
                                 showHistoryAdapter.notifyDataSetChanged();
                             }
-
-                            loadingDialog.dismiss();
                         } else {
                             Log.d("Error", "Error getting documents: ", task.getException());
+                            //show empty layout
+                            empty.setVisibility(View.VISIBLE);
+                            recyclerView.setVisibility(View.GONE);
                         }
+
+                        loadingDialog.dismiss();
                     }
                 });
     }

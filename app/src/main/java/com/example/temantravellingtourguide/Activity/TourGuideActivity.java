@@ -27,6 +27,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -171,30 +172,6 @@ public class TourGuideActivity extends AppCompatActivity {
                 }
             }
         });
-//        db.collection("onProgress").document(progressId)
-//                .get()
-//                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-//                        if (task.isSuccessful()) {
-//                            DocumentSnapshot document = task.getResult();
-//                            assert document != null;
-//                            if (document.exists()) {
-//                                Log.d("Success", "DocumentSnapshot data: " + document.getData());
-//                                tvCity.setText(document.getString("city"));
-//                                tvPrice.setText("Rp "+document.getLong("price"));
-//                                tvPaymentMethod.setText(document.getString("paymentMethod"));
-//                                setTimeLeft(document.getString("dateAndTime"),
-//                                        document.getLong("duration").intValue(),
-//                                        document.getString("timeType"));
-//                            } else {
-//                                Log.d("Error", "No such document");
-//                            }
-//                        } else {
-//                            Log.d("Error", "get failed with ", task.getException());
-//                        }
-//                    }
-//                });
     }
 
     private void getTourismData() {
@@ -306,6 +283,7 @@ public class TourGuideActivity extends AppCompatActivity {
         history.put("paymentMethod", paymentMethod);
         history.put("price", price);
         history.put("status",status);
+        history.put("historyTimestamp",new Timestamp(new Date()));
 
         db.collection("history").document(progressId)
                 .set(history)

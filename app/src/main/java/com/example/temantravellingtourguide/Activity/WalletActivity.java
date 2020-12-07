@@ -103,10 +103,10 @@ public class WalletActivity extends AppCompatActivity {
                             //show total income
                             tvIncome.setText("Rp "+totalIncome);
 
-                            loadingDialog.dismiss();
                         } else {
                             Log.d("Error", "Error getting documents: ", task.getException());
                         }
+                        loadingDialog.dismiss();
                     }
                 });
     }
