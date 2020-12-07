@@ -9,13 +9,28 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/color_primary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -23,47 +38,53 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="30dp"
-        android:src="@drawable/teddy"
+        android:src="@drawable/teman_travelling_image"
+        app:civ_circle_background_color="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar2" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:text="Christopher Teddy M."
-        android:fontFamily="@font/poppins"
+        android:text="-"
+        android:textColor="@color/white"
+        style="@style/TextTitleStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
         android:fontFamily="@font/poppins"
-        android:text="Surakarta, Indonesia"
+        android:text="-"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/tv_email">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/container"
+            android:background="@drawable/dialog_background"
+            android:elevation="5dp"
+            android:layout_margin="10dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -79,12 +100,13 @@
                     android:background="@drawable/ic_profile" />
 
                 <Button
+                    android:id="@+id/btn_edit_profile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="23dp"
                     android:backgroundTint="@color/white"
-                    android:text="Profile Settings"
+                    android:text="Edit Profile"
                     android:background="?android:attr/selectableItemBackground"
                     android:textAlignment="textStart"
                     android:textColor="@color/light_grey"
@@ -145,14 +167,17 @@
 
             </LinearLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/id_btn_logout"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:text="Log Out"
-                android:fontFamily="@font/poppins_bold"/>
+                android:fontFamily="@font/poppins_bold"
+                app:cornerRadius="20dp"
+                style="@style/ButtonPrimaryStyle"/>
 
         </LinearLayout>
     </ScrollView>

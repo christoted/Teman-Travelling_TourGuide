@@ -1,0 +1,84 @@
+{
+  "project_info": {
+    "project_number": "224931087784",
+    "project_id": "temantravelling",
+    "storage_bucket": "temantravelling.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224931087784:android:3e408e3963143dff84899d",
+        "android_client_info": {
+          "package_name": "com.example.temantravellingtourguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224931087784-m0sub2k1f711irf0f7r9pcfavfab34aq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.temantravellingtourguide",
+            "certificate_hash": "28acc8d2c9546747724f6580af302cd09d364588"
+          }
+        },
+        {
+          "client_id": "224931087784-pr9lhercrqk8f65jmu2b83ch7je26n1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArwIj6Uho8KhvijdMJTIS88kWmjH0I1WQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224931087784-pr9lhercrqk8f65jmu2b83ch7je26n1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224931087784:android:31f251354199aebb84899d",
+        "android_client_info": {
+          "package_name": "com.fantasticiii.temantravelling"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224931087784-7b8t407c4fql990b9dkh939p318iqhds.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fantasticiii.temantravelling",
+            "certificate_hash": "28acc8d2c9546747724f6580af302cd09d364588"
+          }
+        },
+        {
+          "client_id": "224931087784-pr9lhercrqk8f65jmu2b83ch7je26n1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArwIj6Uho8KhvijdMJTIS88kWmjH0I1WQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224931087784-pr9lhercrqk8f65jmu2b83ch7je26n1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

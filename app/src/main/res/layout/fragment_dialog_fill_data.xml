@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="20dp"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:minWidth="350dp">
+
+    <TextView
+        android:text="Proses Pencarian Tidak Dapat Dilakukan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        style="@style/TextTitleStyle"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <TextView
+        android:text="Lengkap informasi pribadi kamu terlebih dahulu kemudian lakukan proses pencarian kembali"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        style="@style/TextDescriptionStyle"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_fill_data"
+        style="@style/ButtonPrimaryStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="Lengkapi Data Pribadi"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:cornerRadius="20dp" />
+
+
+
+</LinearLayout>

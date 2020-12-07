@@ -1,26 +1,19 @@
 package com.example.temantravellingtourguide.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.temantravellingtourguide.Adapter.JobAdapter;
-import com.example.temantravellingtourguide.Model.History;
 import com.example.temantravellingtourguide.R;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Job extends Fragment {

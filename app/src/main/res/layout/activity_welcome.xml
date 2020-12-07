@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="50dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Activity.WelcomeActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:src="@drawable/ic_undraw_travelers"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Selamat Datang di TemanTravelling\n(Tour Guide)"
+        style="@style/TextTitleStyle" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Dapatkan kemudahan dalam memperoleh pendapatan dengan menjadi pemandu wisata lokal"
+        style="@style/TextDescriptionStyle"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        app:cornerRadius="20dp"
+        style="@style/ButtonPrimaryStyle" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_sign_up"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        app:cornerRadius="20dp"
+        style="@style/ButtonLightStyle" />
+
+</LinearLayout>
