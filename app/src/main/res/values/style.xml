@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.TemanTravellingTourGuide.">
+    <style name="Theme.TemanTravellingTourGuide.Transparent">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">false</item>
     </style>
@@ -48,12 +48,11 @@
         <item name="android:letterSpacing">0</item>
     </style>
 
-
     <style name="TextTitleStyleItemHistory">
-        <item name="android:fontFamily">@font/poppins_bold</item>
-        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:lineSpacingMultiplier">0.8</item>
-        <item name="android:textColor">@color/color_primary</item>
+        <item name="android:textColor">@color/light_black</item>
     </style>
 
     <style name="TextDescStyleItemHistory">

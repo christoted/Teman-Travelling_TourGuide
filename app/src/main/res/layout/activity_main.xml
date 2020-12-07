@@ -6,119 +6,203 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MainActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        style="@style/TextTitleStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Your Job"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/id_tv_show_more"
-        style="@style/TextDescriptionStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/poppins_light"
-        android:text="Show More"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginTop="22dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <RelativeLayout
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="wrap_content"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:paddingTop="100dp"
+            android:paddingBottom="20dp"
+            android:gravity="center"
+            android:background="@color/color_primary">
 
-            <ImageView
-                android:id="@+id/id_iv_activity_history_single_item"
-                android:layout_width="100dp"
-                android:layout_height="120dp"
-                android:scaleType="fitXY"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                app:civ_circle_background_color="@color/white"
                 android:src="@drawable/teman_travelling_image" />
 
             <LinearLayout
-                android:id="@+id/linearLayoutVertical"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_toRightOf="@id/id_iv_activity_history_single_item"
+                android:layout_marginStart="30dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/id_tv_title1_activity_history_single_item"
-                    style="@style/TextTitleStyleItemHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Explore to" />
+                    android:layout_marginTop="1dp"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/white"
+                    android:text="Selamat Datang, "/>
 
                 <TextView
-                    android:id="@+id/id_tv_title2_activity_history_single_item"
-                    style="@style/TextTitleStyleItemHistory"
+                    android:id="@+id/tv_name"
+                    style="@style/TextTitleStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="-8dp"
-                    android:text="Yogjakarta" />
-
-                <TextView
-                    android:id="@+id/id_tv_location_activity_history_single_item"
-                    style="@style/TextDescStyleItemHistory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Central Java, Indonesia" />
-
-                <TextView
-                    android:id="@+id/id_tv_days_activity_history_single_item"
-                    style="@style/TextDescStyleItemHistory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2 days" />
+                    android:textColor="@color/white"
+                    android:text="Chandra" />
             </LinearLayout>
+        </LinearLayout>
 
-            <LinearLayout
+        <LinearLayout
+            android:id="@+id/running_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="30dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sedang Berjalan"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_bold"
+                style="@style/TextSubtitleStyle"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_running_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="20dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/order_card_gradient"
+                    android:orientation="vertical"
+                    android:padding="30dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Kode Pemesanan"
+                        android:textColor="@color/white"
+                        style="@style/TextDescriptionStyle"/>
+
+                    <TextView
+                        android:id="@+id/tv_progress_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-5dp"
+                        android:text="-"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/white"
+                        style="@style/TextSubtitleStyle"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Waktu Tersisa"
+                        android:textColor="@color/white"
+                        style="@style/TextDescriptionStyle"/>
+
+                    <TextView
+                        android:id="@+id/tv_time_left"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-5dp"
+                        android:text="-"
+                        android:fontFamily="@font/poppins_bold"
+                        android:textColor="@color/white"
+                        style="@style/TextSubtitleStyle"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/waiting_order"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+            <ProgressBar
+                android:id="@+id/spinner"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                style="?progressBarStyle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                style="@style/TextDescriptionStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/linearLayoutVertical"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="0dp"
-                android:layout_toRightOf="@id/id_iv_activity_history_single_item"
-                android:orientation="horizontal">
+                android:layout_marginHorizontal="50dp"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"
+                android:text="Sedang menunggu adanya turis yang memesan Tour Guide" />
 
-                <TextView
-                    android:id="@+id/id_tv_date_activity_history_single_item"
-                    style="@style/TextDescStyleItemHistory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20 - 24 November 2020" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Batalkan Antrian"
+                android:textAllCaps="false"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:layout_marginTop="20dp"
+                app:cornerRadius="20dp"
+                style="@style/ButtonPrimaryStyle" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/id_tv_detail_activity_history_single_item"
-                    style="@style/TextDescStyleItemHistory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="40dp"
-                    android:text="" />
-            </LinearLayout>
+        <LinearLayout
+            android:id="@+id/no_order"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="visible">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/ic_undraw_travelers"/>
 
+            <TextView
+                style="@style/TextTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/color_primary"
+                android:layout_marginTop="20dp"
+                android:text="Sudah siap untuk\nmemandu para turis?" />
 
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mulai Mencari Turis"
+                android:textAllCaps="false"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:layout_marginTop="20dp"
+                app:cornerRadius="20dp"
+                style="@style/ButtonPrimaryStyle" />
+        </LinearLayout>
+    </LinearLayout>
     <include layout="@layout/custom_bottom_navigation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

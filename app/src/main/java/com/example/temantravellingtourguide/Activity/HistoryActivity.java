@@ -1,23 +1,43 @@
 package com.example.temantravellingtourguide.Activity;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
-import com.example.temantravellingtourguide.Adapter.JobAdapter;
+import com.example.temantravellingtourguide.Adapter.ShowHistoryAdapter;
+import com.example.temantravellingtourguide.Fragment.LoadingDialog;
 import com.example.temantravellingtourguide.Model.History;
 import com.example.temantravellingtourguide.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class HistoryActivity extends AppCompatActivity {
-    JobAdapter jobAdapter;
+public class HistoryActivity extends AppCompatActivity implements ShowHistoryAdapter.ShowHistoryItemListener{
+
+    ShowHistoryAdapter showHistoryAdapter;
     ArrayList<History> historyArrayList = new ArrayList<>();
     RecyclerView recyclerView;
+    LinearLayout empty;
+    FirebaseFirestore db;
+    LoadingDialog loadingDialog;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,43 +45,87 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_history);
 
         setupRecyclerView();
+
+        toolbar = findViewById(R.id.toolbar);
+        empty = findViewById(R.id.empty);
+        db = FirebaseFirestore.getInstance();
+        loadingDialog = new LoadingDialog();
+
+        addBackArrow();
         prepareData();
     }
 
     private void prepareData(){
-        String[] CustomerName = {"Mr.James", "Mr.Tanoko"};
-        String[] date = {"20 - 21 Januari 2020", "20 - 25 Oktober 2020"};
-        int[] numDay = {2,6};
-        String[] location = {"Central Java, Indonesia", "Bali, Indonesia"};
-        String[] title1 = {"Explore to Jogjakarta", "Explore to Bali"};
-        int[] image = {R.drawable.teman_travelling_logo, R.drawable.teman_travelling_logo};
+        showDialog();
+        db.collection("history")
+                .whereEqualTo("partnerUID", FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("Success", document.getId() + " => " + document.getData());
+                                String userUID = document.getString("userUID");
+                                String city = document.getString("city");
+                                String language = document.getString("language");
+                                String dateAndTime = document.getString("dateAndTime");
+                                int duration = document.getLong("duration").intValue();
+                                String timeType = document.getString("timeType");
+                                boolean needVehicle =  document.getBoolean("needVehicle");
+                                String paymentMethod = document.getString("paymentMethod");
+                                long price = document.getLong("price");
+                                String status = document.getString("status");
 
-        if (historyArrayList.size() != 0 ) {
-            return;
-        }
+                                historyArrayList.add(new History(userUID,city,language,dateAndTime,duration,timeType,needVehicle,paymentMethod,price,status));
+                            }
 
-        for ( int i = 0; i < CustomerName.length; i++) {
-            History history = new History();
-            history.setImage(image[i]);
-            history.setCustomerName(CustomerName[i]);
-            history.setDate(date[i]);
-            history.setNumDay(numDay[i]);
-            history.setLocation(location[i]);
-            history.setTitle1(title1[i]);
+                            if(historyArrayList.isEmpty()){
+                                //show empty layout
+                                empty.setVisibility(View.VISIBLE);
+                                recyclerView.setVisibility(View.GONE);
+                            }
+                            else{
+                                //show history layout
+                                empty.setVisibility(View.GONE);
+                                recyclerView.setVisibility(View.VISIBLE);
 
-            historyArrayList.add(history);
-            Log.d("12345", "prepareData: " + history.getNumDay());
-        }
+                                showHistoryAdapter = new ShowHistoryAdapter(HistoryActivity.this, historyArrayList,HistoryActivity.this::onShowHistoryItemClick);
+                                recyclerView.setAdapter(showHistoryAdapter);
+                                showHistoryAdapter.notifyDataSetChanged();
+                            }
 
-        jobAdapter = new JobAdapter(this, historyArrayList);
-        recyclerView.setAdapter(jobAdapter);
-
-        jobAdapter.notifyDataSetChanged();
+                            loadingDialog.dismiss();
+                        } else {
+                            Log.d("Error", "Error getting documents: ", task.getException());
+                        }
+                    }
+                });
     }
 
-    private void setupRecyclerView() {
-        recyclerView = findViewById(R.id.id_fragment_rv);
 
+    public void setupRecyclerView() {
+        recyclerView = findViewById(R.id.recyclerViewShowHistory);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
+    @Override
+    public void onShowHistoryItemClick(int position) {
+        History history = historyArrayList.get(position);
+        //  Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showDialog() {
+        FragmentManager fm = getSupportFragmentManager();
+        loadingDialog.show(fm, "fragment_loading_dialog");
+    }
+
+    private void addBackArrow(){
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        toolbar.setNavigationOnClickListener(view1 -> Objects.requireNonNull(this).onBackPressed());
+    }
+
 }

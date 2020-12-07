@@ -6,7 +6,7 @@
     <item
         android:width="243dp"
         android:height="175dp"
-        android:drawable="@drawable/teman_travelling_logo"
+        android:drawable="@drawable/teman_traveling_tour_guide_logo"
         android:gravity="center"/>
 
 </layer-list>

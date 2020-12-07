@@ -1,62 +1,148 @@
 package com.example.temantravellingtourguide.Model;
 
-public class History {
-    private String title1;
-    private String customerName;
-    private String location;
-    private int numDay;
-    private String date;
-    private int image;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    public History() {
+public class History implements Parcelable{
+    private String userUID, city, language, dateAndTime, timeType, paymentMethod, status;
+    private int duration;
+    private long price;
+    private boolean needVehicle;
 
+    public History(String userUID, String city, String language, String dateAndTime, int duration, String timeType, boolean needVehicle, String paymentMethod, long price, String status) {
+        this.userUID = userUID;
+        this.city = city;
+        this.language = language;
+        this.dateAndTime = dateAndTime;
+        this.timeType = timeType;
+        this.paymentMethod = paymentMethod;
+        this.status = status;
+        this.duration = duration;
+        this.price = price;
+        this.needVehicle = needVehicle;
     }
 
-    public String getTitle1() {
-        return title1;
+    protected History(Parcel in) {
+        userUID = in.readString();
+        city = in.readString();
+        language = in.readString();
+        dateAndTime = in.readString();
+        timeType = in.readString();
+        paymentMethod = in.readString();
+        status = in.readString();
+        duration = in.readInt();
+        price = in.readLong();
+        needVehicle = in.readByte() != 0;
     }
 
-    public void setTitle1(String title1) {
-        this.title1 = title1;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(userUID);
+        dest.writeString(city);
+        dest.writeString(language);
+        dest.writeString(dateAndTime);
+        dest.writeString(timeType);
+        dest.writeString(paymentMethod);
+        dest.writeString(status);
+        dest.writeInt(duration);
+        dest.writeLong(price);
+        dest.writeByte((byte) (needVehicle ? 1 : 0));
     }
 
-    public String getCustomerName() {
-        return customerName;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public static final Creator<History> CREATOR = new Creator<History>() {
+        @Override
+        public History createFromParcel(Parcel in) {
+            return new History(in);
+        }
+
+        @Override
+        public History[] newArray(int size) {
+            return new History[size];
+        }
+    };
+
+    public String getPartnerUID() {
+        return userUID;
     }
 
-    public String getLocation() {
-        return location;
+    public void setPartnerUID(String userUID) {
+        this.userUID = userUID;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public String getCity() {
+        return city;
     }
 
-    public int getNumDay() {
-        return numDay;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public void setNumDay(int numDay) {
-        this.numDay = numDay;
+    public String getLanguage() {
+        return language;
     }
 
-    public String getDate() {
-        return date;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getDateAndTime() {
+        return dateAndTime;
     }
 
-    public int getImage() {
-        return image;
+    public void setDateAndTime(String dateAndTime) {
+        this.dateAndTime = dateAndTime;
     }
 
-    public void setImage(int image) {
-        this.image = image;
+    public String getTimeType() {
+        return timeType;
+    }
+
+    public void setTimeType(String timeType) {
+        this.timeType = timeType;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public long getPrice() {
+        return price;
+    }
+
+    public void setPrice(long price) {
+        this.price = price;
+    }
+
+    public boolean isNeedVehicle() {
+        return needVehicle;
+    }
+
+    public void setNeedVehicle(boolean needVehicle) {
+        this.needVehicle = needVehicle;
     }
 }
